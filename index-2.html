@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0f0c"><meta name="description" content="Football Fit — trening, piłka i regeneracja">
+<link rel="manifest" href="./manifest.webmanifest"><title>Football Fit</title>
+<style>
+:root{--bg:#080b09;--panel:#111713;--panel2:#18221b;--green:#7cff6b;--muted:#a7b3a9;--line:#29352c;--white:#f3f7f3}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#142119 0,#080b09 48%);color:var(--white);font:16px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding-bottom:88px}
+header{padding:24px 18px 14px;max-width:720px;margin:auto}.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:.4px;font-size:24px}.ball{display:grid;place-items:center;width:42px;height:42px;background:var(--green);color:#071008;border-radius:14px;font-size:23px}.tag{color:var(--muted);font-size:13px;margin-top:8px}
+main{max-width:720px;margin:auto;padding:0 14px}.hero{background:linear-gradient(135deg,#1c3322,#101712);border:1px solid #31513a;border-radius:24px;padding:20px;margin:8px 0 16px;position:relative;overflow:hidden}.hero:after{content:"⚽";position:absolute;right:10px;bottom:-22px;font-size:110px;opacity:.09}.eyebrow{color:var(--green);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:1.4px}.hero h1{font-size:27px;line-height:1.1;margin:8px 0}.hero p{color:#c3d1c5;max-width:420px;font-size:14px;line-height:1.5}.btn{border:0;border-radius:13px;padding:12px 15px;background:var(--green);color:#081008;font-weight:800;font-size:14px;cursor:pointer}.btn.secondary{background:#26362a;color:var(--white);border:1px solid #405344}.btn.ghost{background:transparent;color:var(--green);border:1px solid #3a5540}.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}.section-head h2{font-size:18px;margin:0}.muted{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:15px}.stat{font-size:27px;font-weight:900;margin-top:6px}.statlabel{font-size:12px;color:var(--muted)}.miniicon{font-size:20px}.tabs{position:fixed;z-index:10;bottom:0;left:0;right:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding:8px 4px calc(8px + env(safe-area-inset-bottom));background:#0b100c;border-top:1px solid var(--line)}.tab{background:none;border:0;color:#8c9a8e;font-size:10px;padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer}.tab span{font-size:20px}.tab.active{color:var(--green)}.day{display:flex;gap:12px;align-items:flex-start}.daymark{width:42px;min-width:42px;height:42px;border-radius:13px;background:#203526;display:grid;place-items:center;color:var(--green);font-weight:900}.day h3{font-size:15px;margin:0 0 4px}.day p{font-size:13px;color:var(--muted);margin:0;line-height:1.45}.day .done{margin-left:auto;accent-color:var(--green);width:22px;height:22px}.stack{display:grid;gap:10px}.pill{display:inline-block;border:1px solid #3d5d43;color:var(--green);border-radius:99px;padding:4px 8px;font-size:11px;font-weight:700}.timer{font-size:48px;font-weight:900;letter-spacing:1px;text-align:center;font-variant-numeric:tabular-nums;margin:14px 0}.timer-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.timer-mode{display:flex;gap:8px;justify-content:center}.timer-mode button{flex:1}.field{width:100%;background:#0b100c;border:1px solid var(--line);color:var(--white);border-radius:12px;padding:12px;font:inherit}.water-glasses{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}.glass{width:34px;height:40px;border-radius:7px 7px 10px 10px;border:1px solid #426a9a;background:#122136;color:#9cc7ff;font-size:20px;cursor:pointer}.glass.filled{background:#28558b;color:white}.progressbar{height:8px;background:#27332a;border-radius:9px;overflow:hidden;margin:10px 0}.progressbar div{height:100%;background:var(--green);width:0;transition:width .2s}.exercise{display:flex;gap:12px;align-items:flex-start}.exercise .num{background:#203526;color:var(--green);border-radius:10px;padding:8px 10px;font-weight:900}.exercise h3{margin:0 0 4px;font-size:15px}.exercise p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.checkrow{display:flex;align-items:center;gap:9px;margin-top:10px;font-size:13px}.checkrow input{accent-color:var(--green);width:19px;height:19px}.notice{background:#171f18;border:1px solid #334235;color:#c5d2c7;border-radius:14px;padding:12px;font-size:12px;line-height:1.5;margin-top:14px}.empty{color:var(--muted);font-size:13px}.hidden{display:none!important}footer{max-width:720px;margin:20px auto;padding:0 16px;color:#738076;font-size:11px;line-height:1.5}
+@media(min-width:600px){header{padding-top:30px}.hero h1{font-size:34px}.grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="ball">⚽</div><div>FOOTBALL <span style="color:var(--green)">FIT</span></div></div><div class="tag">Trenuj mądrze. Graj z głową. Regeneruj się.</div></header>
+<main>
+<section id="home" class="page">
+<div class="hero"><div class="eyebrow">Twój trening • tydzień</div><h1>Każdy krok<br>buduje formę.</h1><p>Rozwijaj kondycję, technikę i szybkość skrzydłowego. Pamiętaj: odpoczynek też jest częścią treningu.</p><button class="btn" onclick="showPage('plan')">Zobacz plan tygodnia →</button></div>
+<div class="grid">
+<div class="card"><div class="miniicon">🏃</div><div class="stat" id="sessionsStat">0</div><div class="statlabel">ukończonych treningów</div></div>
+<div class="card"><div class="miniicon">🏆</div><div class="stat" id="pointsStat">0</div><div class="statlabel">punktów formy</div></div>
+<div class="card"><div class="miniicon">💧</div><div class="stat" id="waterStat">0/6</div><div class="statlabel">szklanek wody dziś</div></div>
+<div class="card"><div class="miniicon">🌙</div><div class="stat" id="sleepStat">—</div><div class="statlabel">sen ostatniej nocy</div></div>
+</div>
+<div class="section-head"><h2>Na dziś</h2><span class="pill" id="todayLabel">Plan dnia</span></div>
+<div class="card" id="todayCard"></div>
+<div class="section-head"><h2>Szybki start</h2></div>
+<div class="grid">
+<button class="card" style="text-align:left;color:inherit;cursor:pointer" onclick="showPage('timer')"><div class="miniicon">⏱️</div><b>Stoper</b><div class="muted">Czas treningu i przerw</div></button>
+<button class="card" style="text-align:left;color:inherit;cursor:pointer" onclick="showPage('wing')"><div class="miniicon">⚡</div><b>Trening skrzydłowego</b><div class="muted">Technika i zwody</div></button>
+</div>
+<div class="notice">Bez presji na wagę — skup się na energii, sprawności i tym, jak się czujesz. Dostosuj wysiłek do samopoczucia.</div>
+</section>
+
+<section id="plan" class="page hidden">
+<div class="section-head"><h2>Plan tygodnia</h2><span class="pill">Startowy</span></div>
+<p class="muted">Zaznacz trening po wykonaniu. Jeśli masz trening klubowy, mecz lub czujesz zmęczenie, zamień sesję na odpoczynek.</p>
+<div id="weekList" class="stack"></div>
+<div class="notice">Zacznij od spokojnego tempa. Przed każdym treningiem zrób 5–10 minut rozgrzewki. Przerwij ćwiczenia przy bólu, zawrotach głowy lub nietypowej duszności.</div>
+</section>
+
+<section id="timer" class="page hidden">
+<div class="section-head"><h2>Stoper i odpoczynek</h2></div>
+<div class="card">
+<div class="timer-mode"><button class="btn secondary" onclick="setTimerMode('stopwatch')">Stoper</button><button class="btn secondary" onclick="setTimerMode('rest')">Przerwa 60 s</button></div>
+<div class="timer" id="timerDisplay">00:00</div>
+<div class="timer-controls"><button class="btn" id="timerStart" onclick="toggleTimer()">Start</button><button class="btn secondary" onclick="resetTimer()">Reset</button></div>
+<p class="muted" id="timerHint" style="text-align:center;margin-top:14px">Mierz czas ćwiczeń bez pośpiechu.</p>
+</div>
+<div class="section-head"><h2>Wskazówka</h2></div><div class="card"><b>Przerwy pomagają robić postępy.</b><p class="muted">Odpocznij dłużej, jeśli oddech nie wrócił do normy. Nie musisz kończyć każdej serii do wyczerpania.</p></div>
+</section>
+
+<section id="progress" class="page hidden">
+<div class="section-head"><h2>Postępy i osiągnięcia</h2></div>
+<div class="grid">
+<div class="card"><div class="miniicon">🎯</div><div class="stat" id="pSessions">0</div><div class="statlabel">treningów ukończonych</div></div>
+<div class="card"><div class="miniicon">⭐</div><div class="stat" id="pPoints">0</div><div class="statlabel">punktów formy</div></div>
+</div>
+<div class="section-head"><h2>Odznaki</h2></div><div id="badges" class="stack"></div>
+<div class="section-head"><h2>Jak się dziś czujesz?</h2></div>
+<div class="card"><label for="mood">Wybierz samopoczucie</label><select id="mood" class="field" onchange="saveMood()"><option value="">Wybierz…</option><option>Pełen energii</option><option>W porządku</option><option>Zmęczony</option><option>Potrzebuję odpoczynku</option></select><p class="muted" id="moodMsg">Słuchaj swojego ciała — odpoczynek to dobry wybór.</p></div>
+</section>
+
+<section id="recovery" class="page hidden">
+<div class="section-head"><h2>Regeneracja</h2></div>
+<div class="card"><div class="miniicon">💧</div><h3 style="margin:8px 0 0">Nawodnienie</h3><p class="muted">Zaznacz wypite szklanki. To elastyczne przypomnienie, nie sztywny limit — potrzeby rosną przy upale i treningu.</p><div class="stat" id="waterBig">0 / 6</div><div class="progressbar"><div id="waterBar"></div></div><div class="water-glasses" id="glasses"></div><button class="btn secondary" onclick="resetWater()">Wyczyść licznik</button></div>
+<div class="section-head"><h2>Sen</h2></div><div class="card"><label for="sleep">Ile godzin spałeś/spałaś ostatniej nocy?</label><select id="sleep" class="field" onchange="saveSleep()"><option value="">Wybierz…</option><option value="6">6 godzin</option><option value="7">7 godzin</option><option value="8">8 godzin</option><option value="9">9 godzin</option><option value="10">10 godzin</option><option value="11">11+ godzin</option></select><p class="muted">Nastolatkom zwykle zaleca się 8–10 godzin snu na dobę.</p></div>
+<div class="section-head"><h2>Małe rzeczy, które pomagają</h2></div><div class="stack">
+<div class="card">🥗 <b>Regularne posiłki</b><p class="muted">Jedz wystarczająco i różnorodnie. Nie pomijaj posiłków dla treningu.</p></div>
+<div class="card">🧘 <b>Schłodzenie</b><p class="muted">Po wysiłku zwolnij tempo i poruszaj delikatnie mięśniami.</p></div>
+<div class="card">🛌 <b>Dzień odpoczynku</b><p class="muted">Nie każdy dzień musi być treningowy. Zmęczenie to informacja, nie porażka.</p></div>
+</div>
+</section>
+
+<section id="wing" class="page hidden">
+<div class="section-head"><h2>Trening skrzydłowego</h2><span class="pill">Technika</span></div>
+<p class="muted">Wybierz ćwiczenia i zaznacz, gdy skończysz. Użyj pachołków lub bezpiecznych znaczników, na otwartej przestrzeni.</p>
+<div class="stack" id="wingList"></div>
+<div class="section-head"><h2>Plan sesji</h2></div><div class="card"><b>Około 20–30 minut</b><p class="muted">Rozgrzewka 5–8 min → technika 10–15 min → spokojne zakończenie. Nie rób szybkich zwrotów na śliskiej nawierzchni.</p><button class="btn" onclick="completeWing()">Zapisz ukończoną sesję</button></div>
+</section>
+</main>
+<nav class="tabs">
+<button class="tab active" data-page="home" onclick="showPage('home')"><span>⌂</span>Start</button>
+<button class="tab" data-page="plan" onclick="showPage('plan')"><span>▦</span>Plan</button>
+<button class="tab" data-page="timer" onclick="showPage('timer')"><span>⏱</span>Stoper</button>
+<button class="tab" data-page="wing" onclick="showPage('wing')"><span>⚽</span>Piłka</button>
+<button class="tab" data-page="progress" onclick="showPage('progress')"><span>🏆</span>Postępy</button>
+<button class="tab" data-page="recovery" onclick="showPage('recovery')"><span>💧</span>Regeneracja</button>
+</nav>
+<footer>Football Fit • Prototyp lokalny. Dane zapisują się w pamięci tej przeglądarki na urządzeniu. Nie zastępuje porady trenera ani specjalisty medycznego.</footer>
+<script>
+const days=[
+{d:"PN",name:"Poniedziałek",title:"Kondycja",time:"25–30 min",desc:"Marsz przeplatany lekkim truchtem; spokojne schłodzenie.",icon:"🏃"},
+{d:"WT",name:"Wtorek",title:"Piłka i technika",time:"25–35 min",desc:"Prowadzenie piłki, zwody, podania lub strzały.",icon:"⚽"},
+{d:"ŚR",name:"Środa",title:"Siła całego ciała",time:"20–25 min",desc:"Przysiady, pompki w wygodnej wersji, mostki i deska.",icon:"💪"},
+{d:"CZ",name:"Czwartek",title:"Regeneracja",time:"15–30 min",desc:"Spokojny spacer i delikatna mobilizacja albo pełny odpoczynek.",icon:"🌿"},
+{d:"PT",name:"Piątek",title:"Szybkość skrzydłowego",time:"20–30 min",desc:"Rozgrzewka, kontrola piłki i kilka krótkich przyspieszeń.",icon:"⚡"},
+{d:"SO",name:"Sobota",title:"Ruch dla przyjemności",time:"20–45 min",desc:"Rekreacyjna piłka, rower lub spacer — bez presji.",icon:"😎"},
+{d:"ND",name:"Niedziela",title:"Odpoczynek",time:"Dzień wolny",desc:"Sen, posiłki i regeneracja. Możesz odpocząć całkowicie.",icon:"🌙"}
+];
+const drills=[
+["1","Slalom z piłką","Ustaw 4–5 znaczników. Prowadź piłkę między nimi spokojnie, raz prawą, raz lewą nogą. 4 przejścia."],
+["2","Przyjęcie i przyspieszenie","Przyjmij piłkę, poprowadź ją kilka metrów i przyspiesz kontrolowanie. 5 powtórzeń na każdą stronę."],
+["3","Zwód i zmiana kierunku","Ćwicz jeden prosty zwód, po którym zmieniasz kierunek. Najpierw wolno, dopiero potem szybciej. 6 powtórzeń."],
+["4","Podania o ścianę","Podawaj i przyjmuj piłkę naprzemiennie obiema nogami przez 3–5 minut, w bezpiecznym miejscu."],
+["5","Dośrodkowanie lub celność","Jeśli masz bezpieczne miejsce, ćwicz celne podania do wyznaczonego pola. 8–10 prób bez maksymalnej siły."]
+];
+const get=(k,f)=>{try{const v=localStorage.getItem("ff_"+k);return v===null?f:JSON.parse(v)}catch{return f}};
+const put=(k,v)=>localStorage.setItem("ff_"+k,JSON.stringify(v));
+let completed=get("completed",[]);
+let water=get("water",0), waterDate=get("waterDate",new Date().toDateString());
+if(waterDate!==new Date().toDateString()){water=0;put("water",0);put("waterDate",new Date().toDateString())}
+let sleep=get("sleep",""), mood=get("mood",""), drillDone=get("drillDone",[]);
+function showPage(page){document.querySelectorAll(".page").forEach(p=>p.classList.toggle("hidden",p.id!==page));document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.page===page));if(page==="progress")renderProgress();if(page==="recovery")renderWater();window.scrollTo({top:0,behavior:"smooth"})}
+function renderWeek(){document.getElementById("weekList").innerHTML=days.map((x,i)=>`<div class="card day"><div class="daymark">${x.d}</div><div style="flex:1"><h3>${x.icon} ${x.name} · ${x.title}</h3><p>${x.desc}</p><p style="margin-top:6px;color:var(--green)">${x.time}</p><label class="checkrow"><input type="checkbox" ${completed.includes(i)?"checked":""} onchange="toggleDay(${i},this.checked)"> Oznacz jako wykonane</label></div></div>`).join("");renderHome()}
+function toggleDay(i,on){completed=on?[...new Set([...completed,i])]:completed.filter(n=>n!==i);put("completed",completed);renderWeek();renderProgress()}
+function renderHome(){document.getElementById("sessionsStat").textContent=completed.length;document.getElementById("pointsStat").textContent=completed.length*10+(drillDone.length*2);document.getElementById("waterStat").textContent=water+"/6";document.getElementById("sleepStat").textContent=sleep?sleep+" h":"—";document.getElementById("todayLabel").textContent=days[(new Date().getDay()+6)%7].name;let i=(new Date().getDay()+6)%7,x=days[i];document.getElementById("todayCard").innerHTML=`<div class="day"><div class="daymark">${x.icon}</div><div><h3>${x.title}</h3><p>${x.desc}</p><p style="color:var(--green);margin-top:6px">${x.time}</p><button class="btn secondary" style="margin-top:12px" onclick="showPage('plan')">Otwórz plan</button></div></div>`}
+function renderProgress(){let pts=completed.length*10+drillDone.length*2;document.getElementById("pSessions").textContent=completed.length;document.getElementById("pPoints").textContent=pts;document.getElementById("badges").innerHTML=[{n:"Pierwszy krok",d:"Ukończ pierwszy trening",ok:completed.length>=1,ico:"🌱"},{n:"Regularność",d:"Ukończ 3 treningi",ok:completed.length>=3,ico:"🔥"},{n:"Tydzień w ruchu",d:"Ukończ 5 aktywności",ok:completed.length>=5,ico:"🏆"},{n:"Technik",d:"Zaznacz 3 ćwiczenia skrzydłowego",ok:drillDone.length>=3,ico:"⚽"}].map(b=>`<div class="card" style="display:flex;gap:12px;align-items:center;opacity:${b.ok?1:.55}"><span style="font-size:28px">${b.ico}</span><div style="flex:1"><b>${b.n}</b><div class="muted">${b.d}</div></div><span>${b.ok?"✓":"🔒"}</span></div>`).join("");renderHome()}
+function renderWater(){document.getElementById("waterBig").textContent=water+" / 6";document.getElementById("waterBar").style.width=Math.min(100,water/6*100)+"%";document.getElementById("glasses").innerHTML=Array.from({length:6},(_,i)=>`<button class="glass ${i<water?"filled":""}" aria-label="Szklanka ${i+1}" onclick="setWater(${i+1})">${i<water?"✓":"+"}</button>`).join("");document.getElementById("sleep").value=sleep;document.getElementById("mood").value=mood;renderHome()}
+function setWater(n){water=n;put("water",water);put("waterDate",new Date().toDateString());renderWater()}
+function resetWater(){water=0;put("water",water);renderWater()}
+function saveSleep(){sleep=document.getElementById("sleep").value;put("sleep",sleep);renderHome()}
+function saveMood(){mood=document.getElementById("mood").value;put("mood",mood);document.getElementById("moodMsg").textContent=mood==="Potrzebuję odpoczynku"||mood==="Zmęczony"?"Rozważ lekki dzień lub odpoczynek. To część mądrego treningu.":"Pamiętaj, by dopasować wysiłek do samopoczucia.";put("mood",mood)}
+function renderDrills(){document.getElementById("wingList").innerHTML=drills.map((d,i)=>`<div class="card exercise"><div class="num">${d[0]}</div><div style="flex:1"><h3>${d[1]}</h3><p>${d[2]}</p><label class="checkrow"><input type="checkbox" ${drillDone.includes(i)?"checked":""} onchange="toggleDrill(${i},this.checked)"> Wykonane</label></div></div>`).join("")}
+function toggleDrill(i,on){drillDone=on?[...new Set([...drillDone,i])]:drillDone.filter(n=>n!==i);put("drillDone",drillDone);renderDrills();renderProgress()}
+function completeWing(){if(!completed.includes(1)){completed.push(1);put("completed",completed)}renderWeek();renderProgress();alert("Sesja zapisana! Dobra robota — pamiętaj o regeneracji.")}
+let timerMode="stopwatch",elapsed=0,running=false,startedAt=0,interval=null;
+function fmt(s){s=Math.max(0,Math.floor(s));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function tick(){let n=elapsed+(running?Math.floor((Date.now()-startedAt)/1000):0);if(timerMode==="rest")n=Math.max(0,60-n);document.getElementById("timerDisplay").textContent=fmt(n);if(timerMode==="rest"&&n===0&&running){running=false;elapsed=60;clearInterval(interval);document.getElementById("timerStart").textContent="Start";document.getElementById("timerHint").textContent="Przerwa zakończona — sprawdź, czy czujesz się gotowy/a."}}
+function setTimerMode(mode){timerMode=mode;resetTimer();document.getElementById("timerHint").textContent=mode==="rest"?"Minutowa przerwa. Odpocznij dłużej, jeśli tego potrzebujesz.":"Mierz czas treningu bez pośpiechu."}
+function toggleTimer(){if(running){elapsed+=Math.floor((Date.now()-startedAt)/1000);running=false;clearInterval(interval);document.getElementById("timerStart").textContent="Wznów"}else{if(timerMode==="rest"&&elapsed>=60)elapsed=0;startedAt=Date.now();running=true;interval=setInterval(tick,250);document.getElementById("timerStart").textContent="Pauza"}tick()}
+function resetTimer(){running=false;elapsed=0;clearInterval(interval);document.getElementById("timerStart").textContent="Start";tick()}
+renderWeek();renderDrills();renderWater();renderProgress();
+if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
+</script>
+</body></html>
