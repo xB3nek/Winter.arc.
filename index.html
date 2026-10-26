@@ -18,7 +18,7 @@
 </style></head>
 <body><main class="wrap">
 <header class="hero"><div class="eyebrow">SEZON ZMIAN • 2026</div><h1>WINTER <span style="color:var(--green)">ARC</span></h1><p>Małe kroki. Regularność. Mocniejsza forma.<br>Twój plan tygodniowy i trening piłkarski w jednym miejscu.</p></header>
-<nav class="tabs" aria-label="Zakładki aplikacji"><button class="tab active" data-page="winter">🌿 Winter Arc</button><button class="tab" data-page="football">⚽ Piłka • 7 dni</button><button class="tab" data-page="winger">🏃 Skrzydłowy</button><button class="tab" data-page="timer">⏱️ Stoper</button></nav>
+<nav class="tabs" aria-label="Zakładki aplikacji"><button class="tab active" data-page="winter">🌿 Winter Arc</button><button class="tab" data-page="football">⚽ Piłka • 7 dni</button><button class="tab" data-page="winger">🏃 Skrzydłowy</button><button class="tab" data-page="timer">⏱️ Stoper</button><button class="tab" data-page="activity">👟 Kroki i kalorie</button></nav>
 
 <div id="winterPage" class="panel-page">
 <div class="stats"><div class="stat"><strong id="doneCount">0/7</strong><span>dni zaliczone</span></div><div class="stat"><strong id="taskCount">0</strong><span>ćwiczenia zrobione</span></div><div class="stat"><strong>8–10 h</strong><span>snu na dobę</span></div></div>
@@ -55,6 +55,28 @@
 <p class="small">Gdy czas minie, ekran pokaże „Koniec!”.</p>
 </section>
 </div>
+
+<div id="activityPage" class="panel-page" hidden>
+  <div class="football-intro"><div class="section-kicker">Football Fit • aktywność</div><h2 style="margin:7px 0">Kroki i kalorie 👟</h2><p class="desc" style="margin-bottom:0">Licznik kroków może próbować wykrywać ruch, gdy ta strona jest otwarta. Działa zależnie od telefonu i przeglądarki. Kalorie możesz wpisywać samodzielnie.</p></div>
+  <section class="card">
+    <div class="cardhead"><div><h3>Dzisiejsze kroki</h3><div class="small" id="stepSensorStatus">Licznik nie został uruchomiony</div></div><span class="tag">Kroki</span></div>
+    <div id="autoStepsDisplay" style="font-size:clamp(38px,11vw,58px);font-weight:900;text-align:center;padding:16px 0;font-variant-numeric:tabular-nums">0</div>
+    <div class="progressbar"><div id="stepGoalFill" style="width:0%"></div></div><div class="small" id="stepGoalText">Cel jest orientacyjny — dopasuj go do siebie.</div>
+    <div class="actions"><button class="btn" id="startStepSensor">Włącz licznik kroków</button><button class="btn secondary" id="stopStepSensor">Zatrzymaj</button></div>
+    <div class="tracker"><label for="manualSteps">Popraw liczbę kroków ręcznie</label><input id="manualSteps" type="number" min="0" max="100000" step="1" inputmode="numeric" placeholder="Wpisz liczbę kroków"><div class="actions"><button class="btn secondary" id="saveManualSteps">Zapisz kroki</button></div></div>
+    <p class="small">Ważne: strona internetowa nie może liczyć kroków niezawodnie w tle ani wtedy, gdy telefon ją usypia. Jeśli licznik nie działa, wpisz wynik z aplikacji Zdrowie/Google Fit lub z telefonu.</p>
+  </section>
+  <section class="card">
+    <div class="cardhead"><div><h3>Dodaj kalorie 🍎</h3><div class="small">Wpisuj kalorie z posiłków lub produktów</div></div><span class="tag">Ręcznie</span></div>
+    <div class="football-summary"><div class="stat"><strong id="calorieTotal">0</strong><span>kcal dodane dzisiaj</span></div><div class="stat"><strong id="calorieEntries">0</strong><span>wpisy</span></div></div>
+    <label for="calorieName" style="display:block;font-weight:750;margin:12px 0 7px">Produkt lub posiłek (opcjonalnie)</label><input id="calorieName" type="text" maxlength="60" placeholder="Np. kanapka" style="width:100%;background:#080808;border:1px solid #484848;color:var(--white);padding:12px;border-radius:10px;font:inherit">
+    <label for="calorieAmount" style="display:block;font-weight:750;margin:12px 0 7px">Kalorie (kcal)</label><input id="calorieAmount" type="number" min="0" max="10000" step="1" inputmode="numeric" placeholder="Np. 250" style="width:100%;background:#080808;border:1px solid #484848;color:var(--white);padding:12px;border-radius:10px;font:inherit">
+    <div class="actions"><button class="btn" id="addCalories">Dodaj wpis</button><button class="btn secondary" id="resetCalories">Wyczyść dzisiejsze wpisy</button></div>
+    <div class="section-title"><h2>Dzisiejsze wpisy</h2></div><div id="calorieList" class="small">Brak wpisów.</div>
+    <p class="small" style="margin-top:12px">To prosty dziennik, nie zalecenie dietetyczne. Nie musisz trafiać w konkretną liczbę kalorii — szczególnie w okresie wzrostu ważne są regularne, wystarczające posiłki.</p>
+  </section>
+</div>
+
 <div class="footer">WINTER ARC • FOOTBALL FIT • konsekwencja ponad perfekcję</div>
 </main>
 <script>
@@ -124,7 +146,90 @@ document.querySelectorAll('.countdown').forEach(btn=>btn.onclick=()=>{countdownR
 function paintCountdown(){let left=Math.max(0,countdownEnd-Date.now());countdownRemaining=Math.ceil(left/1000);countdownDisplay.textContent=countdownRemaining>0?countdownRemaining+' s':'Koniec!';if(left<=0){clearInterval(countdownInterval);countdownInterval=null}}
 document.getElementById('countdownStart').onclick=()=>{if(countdownInterval)clearInterval(countdownInterval);if(countdownRemaining<=0)countdownRemaining=30;countdownEnd=Date.now()+countdownRemaining*1000;countdownInterval=setInterval(paintCountdown,100);paintCountdown()};
 document.getElementById('countdownReset').onclick=()=>{clearInterval(countdownInterval);countdownInterval=null;countdownRemaining=0;countdownDisplay.textContent='Gotowy'};
-document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===tab));['winter','football','winger','timer'].forEach(page=>document.getElementById(page+'Page').hidden=tab.dataset.page!==page);window.scrollTo({top:0,behavior:'smooth'})}));
+
+// Kroki i dziennik kalorii — dane zapisują się lokalnie w tej przeglądarce.
+const todayKey=()=>new Date().toISOString().slice(0,10);
+let activityDate=todayKey(),autoSteps=0,stepListening=false,lastStepAt=0,lastMagnitude=0,stepPeak=false;
+let stepCounts={},calorieLogs=[];
+function loadActivity(){
+ try{stepCounts=JSON.parse(localStorage.getItem('footballFitStepsByDateV1')||'{}')}catch(e){stepCounts={}}
+ try{calorieLogs=JSON.parse(localStorage.getItem('footballFitCaloriesByDateV1')||'{}')}catch(e){calorieLogs={}}
+ if(activityDate!==todayKey()) activityDate=todayKey();
+ autoSteps=Number(stepCounts[activityDate]||0);
+ renderActivity();
+}
+function saveActivitySteps(){stepCounts[activityDate]=autoSteps;try{localStorage.setItem('footballFitStepsByDateV1',JSON.stringify(stepCounts))}catch(e){}renderActivity()}
+function renderActivity(){
+ const display=document.getElementById('autoStepsDisplay');if(!display)return;
+ display.textContent=Math.max(0,autoSteps).toLocaleString('pl-PL');
+ document.getElementById('manualSteps').value=autoSteps;
+ document.getElementById('stepGoalFill').style.width=Math.min(100,autoSteps/6000*100)+'%';
+ document.getElementById('stepGoalText').textContent=autoSteps>=6000?'Dobra robota — pamiętaj, że każdy ma inny dzień.':`Orientacyjny pasek aktywności: ${Math.min(6000,autoSteps).toLocaleString('pl-PL')} / 6 000 kroków`;
+ const logs=Array.isArray(calorieLogs[activityDate])?calorieLogs[activityDate]:[];
+ document.getElementById('calorieTotal').textContent=logs.reduce((sum,x)=>sum+(Number(x.kcal)||0),0).toLocaleString('pl-PL');
+ document.getElementById('calorieEntries').textContent=logs.length;
+ const list=document.getElementById('calorieList');
+ if(!logs.length){list.textContent='Brak wpisów.';return}
+ list.innerHTML='';
+ logs.slice().reverse().forEach((entry,revIndex)=>{
+   const actualIndex=logs.length-1-revIndex;
+   const row=document.createElement('div');row.className='exercise';
+   const label=document.createElement('div');label.style.flex='1';
+   const b=document.createElement('b');b.textContent=entry.name||'Posiłek / produkt';
+   const small=document.createElement('small');small.textContent=`${Number(entry.kcal)||0} kcal`;
+   label.append(b,small);
+   const remove=document.createElement('button');remove.className='btn secondary';remove.textContent='Usuń';remove.onclick=()=>{logs.splice(actualIndex,1);calorieLogs[activityDate]=logs;try{localStorage.setItem('footballFitCaloriesByDateV1',JSON.stringify(calorieLogs))}catch(e){}renderActivity()};
+   row.append(label,remove);list.appendChild(row);
+ });
+}
+function handleMotion(event){
+ if(!stepListening)return;
+ const a=event.accelerationIncludingGravity||event.acceleration;
+ if(!a||a.x==null||a.y==null||a.z==null)return;
+ const mag=Math.sqrt(a.x*a.x+a.y*a.y+a.z*a.z);
+ const delta=Math.abs(mag-lastMagnitude);lastMagnitude=mag;
+ const now=Date.now();
+ // Heurystyka oparta na zmianie przyspieszenia; może pomijać kroki lub liczyć ruchy jako kroki.
+ if(delta>2.2&&!stepPeak&&now-lastStepAt>320){autoSteps++;lastStepAt=now;stepPeak=true;saveActivitySteps()}
+ if(delta<0.9)stepPeak=false;
+}
+async function startStepCounting(){
+ const status=document.getElementById('stepSensorStatus');
+ try{
+   if(!('DeviceMotionEvent' in window)){status.textContent='Ta przeglądarka nie udostępnia czujnika ruchu. Wpisz kroki ręcznie.';return}
+   if(typeof DeviceMotionEvent.requestPermission==='function'){
+     const permission=await DeviceMotionEvent.requestPermission();
+     if(permission!=='granted'){status.textContent='Brak zgody na czujnik ruchu. Możesz wpisać kroki ręcznie.';return}
+   }
+   if(!stepListening){window.addEventListener('devicemotion',handleMotion);stepListening=true}
+   status.textContent='Licznik włączony — trzymaj telefon przy sobie, a stronę otwartą.';
+ }catch(e){status.textContent='Nie udało się uruchomić czujnika. Wpisz kroki ręcznie.'}
+}
+function stopStepCounting(){if(stepListening){window.removeEventListener('devicemotion',handleMotion);stepListening=false}document.getElementById('stepSensorStatus').textContent='Licznik zatrzymany. Wykryte kroki zostały zapisane.'}
+document.getElementById('startStepSensor').addEventListener('click',startStepCounting);
+document.getElementById('stopStepSensor').addEventListener('click',stopStepCounting);
+document.getElementById('saveManualSteps').addEventListener('click',()=>{
+ const raw=document.getElementById('manualSteps').value;
+ if(raw.trim()==='')return;
+ autoSteps=Math.max(0,Math.min(100000,Math.floor(Number(raw)||0)));
+ saveActivitySteps();
+ document.getElementById('stepSensorStatus').textContent='Zapisano ręcznie wpisaną liczbę kroków.';
+});
+document.getElementById('addCalories').addEventListener('click',()=>{
+ const input=document.getElementById('calorieAmount'),raw=input.value;
+ if(raw.trim()===''||!Number.isFinite(Number(raw))||Number(raw)<0||Number(raw)>10000){input.focus();return}
+ const logs=Array.isArray(calorieLogs[activityDate])?calorieLogs[activityDate]:[];
+ logs.push({name:document.getElementById('calorieName').value.trim(),kcal:Math.round(Number(raw))});
+ calorieLogs[activityDate]=logs;
+ try{localStorage.setItem('footballFitCaloriesByDateV1',JSON.stringify(calorieLogs))}catch(e){}
+ input.value='';document.getElementById('calorieName').value='';renderActivity();
+});
+document.getElementById('resetCalories').addEventListener('click',()=>{
+ if(confirm('Wyczyścić wszystkie wpisy kalorii z dzisiaj?')){calorieLogs[activityDate]=[];try{localStorage.setItem('footballFitCaloriesByDateV1',JSON.stringify(calorieLogs))}catch(e){}renderActivity()}
+});
+loadActivity();
+
+document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t===tab));['winter','football','winger','timer','activity'].forEach(page=>document.getElementById(page+'Page').hidden=tab.dataset.page!==page);window.scrollTo({top:0,behavior:'smooth'})}));
 document.getElementById('resetWeek').onclick=()=>{if(confirm('Na pewno wyzerować postęp tygodnia?')){checks={};save()}};
 document.getElementById('todayBtn').onclick=()=>{let d=new Date().getDay();selected=d===0?6:d-1;render()};
 let d=new Date().getDay();selected=d===0?6:d-1;render();renderWeekBall();renderWinger();paintTimer();
